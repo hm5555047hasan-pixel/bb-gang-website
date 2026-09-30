@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BB Gang | Official Website</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#070707;color:#fff}
+nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:rgba(5,5,5,.96);border-bottom:1px solid #222}
+.logo{font-size:28px;font-weight:900;letter-spacing:2px}.logo span{color:#ff1744}
+nav ul{display:flex;gap:25px;list-style:none}nav a{color:#fff;text-decoration:none;font-weight:bold}nav a:hover{color:#ff1744}
+.hero{min-height:90vh;display:flex;justify-content:center;align-items:center;text-align:center;padding:30px;background:radial-gradient(circle at center,#30000b 0%,#090909 45%,#000 100%)}
+.hero h1{font-size:80px;font-weight:900;letter-spacing:8px;text-shadow:0 0 15px #ff1744,0 0 40px #ff1744}
+.hero h1 span{color:#ff1744}.hero p{margin-top:20px;color:#aaa;font-size:20px}
+.hero-buttons{margin-top:35px}.btn{display:inline-block;padding:14px 25px;margin:8px;border-radius:8px;text-decoration:none;font-weight:bold;color:#fff;background:#ff1744;transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 25px #ff1744}.btn.secondary{background:transparent;border:1px solid #ff1744}
+section{padding:80px 7%}.title{text-align:center;margin-bottom:50px}.title h2{font-size:38px}.title span{color:#ff1744}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px;max-width:1100px;margin:auto}
+.member{background:#111;border:1px solid #292929;border-radius:15px;padding:25px;text-align:center;transition:.3s}
+.member:hover{transform:translateY(-8px);border-color:#ff1744;box-shadow:0 0 25px rgba(255,23,68,.2)}
+.avatar{width:120px;height:120px;margin:0 auto 20px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#ff1744,#570015);display:flex;justify-content:center;align-items:center;font-size:36px;font-weight:bold}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.member h3{font-size:24px}.role{color:#ff1744;font-weight:bold;margin-top:8px}.member p{color:#999;margin-top:15px;line-height:1.6}
+.about{max-width:900px;margin:auto;text-align:center;color:#bbb;line-height:1.8;font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:900px;margin:50px auto 0}
+.stat{background:#111;padding:30px;text-align:center;border-radius:12px;border:1px solid #222}.stat h3{color:#ff1744;font-size:35px}.stat p{color:#aaa;margin-top:8px}
+.rules{max-width:800px;margin:auto}.rule{background:#111;margin:12px 0;padding:18px;border-left:4px solid #ff1744;border-radius:5px}.rule strong{color:#ff1744}
+.join{text-align:center;background:linear-gradient(rgba(60,0,15,.7),rgba(0,0,0,.9))}.join h2{font-size:45px}.join p{color:#aaa;margin:15px}
+footer{background:#030303;border-top:1px solid #222;text-align:center;padding:35px 20px;color:#777}footer strong{color:#ff1744}
+@media(max-width:700px){nav ul{display:none}.hero h1{font-size:50px;letter-spacing:4px}section{padding:60px 5%}}
+
+.join-form{max-width:700px;margin:30px auto 0;background:#111;border:1px solid #292929;border-radius:16px;padding:30px;text-align:left}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-group{display:flex;flex-direction:column;gap:7px}.form-group.full{grid-column:1/-1}
+.form-group label{font-weight:bold;color:#ddd}.form-group input{padding:13px;border-radius:8px;border:1px solid #333;background:#080808;color:#fff;outline:none}
+.form-group input:focus{border-color:#ff1744;box-shadow:0 0 10px rgba(255,23,68,.2)}
+.form-note{font-size:13px;color:#888;margin:15px 0;line-height:1.5}
+.team-btn{margin-top:15px;padding:10px 16px;border:1px solid #ff1744;border-radius:7px;background:transparent;color:#fff;cursor:pointer;font-weight:bold}
+.team-btn:hover{background:#ff1744}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:2000;justify-content:center;align-items:center;padding:20px}
+.modal-box{max-width:520px;width:100%;background:#111;border:1px solid #ff1744;border-radius:15px;padding:30px;position:relative;text-align:center}
+.modal-box h3{font-size:28px}.modal-box .modal-role{color:#ff1744;font-weight:bold;margin:8px 0 15px}
+.close-modal{position:absolute;right:15px;top:10px;background:none;border:0;color:#fff;font-size:28px;cursor:pointer}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}}
+
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">BB <span>GANG</span></div>
+<ul>
+<li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#team">Team</a></li><li><a href="#rules">Rules</a></li><li><a href="#join">Join</a></li>
+</ul>
+</nav>
+<section class="hero" id="home">
+<div>
+<h1>BB <span>GANG</span></h1>
+<p>WELCOME TO THE OFFICIAL BB GANG WEBSITE</p>
+<div class="hero-buttons">
+<a href="#team" class="btn">MEET THE TEAM</a>
+<a href="#join" class="btn secondary">JOIN BB GANG</a>
+</div>
+</div>
+</section>
+<section id="about">
+<div class="title"><h2>ABOUT <span>BB GANG</span></h2></div>
+<div class="about"><p>BB Gang is a community built around friendship, teamwork, loyalty and creativity. This is the official BB Gang community website.</p></div>
+<div class="stats">
+<div class="stat"><h3>8</h3><p>Team Roles & Members</p></div>
+<div class="stat"><h3>24/7</h3><p>Community</p></div>
+<div class="stat"><h3>100%</h3><p>Loyalty</p></div>
+<div class="stat"><h3>∞</h3><p>Memories</p></div>
+</div>
+</section>
+<section id="team">
+<div class="title"><h2>BB GANG <span>TEAM</span></h2></div>
+<div class="team">
+<div class="member">
+<div class="avatar"><img src="founder of bb gang.png" alt="Tabish Ali"></div>
+<h3>Tabish Ali</h3><div class="role">FOUNDER</div>
+<p>Class 9th · Elysian School</p>
+<button class="team-btn" onclick="viewTeamDetail('Tabish Ali','Founder','Founder of BB Gang. Class 9th, Elysian School.')">VIEW TEAM DETAIL</button>
+</div>
+<div class="member">
+<div class="avatar"><img src="developer of bb gang.png" alt="Hassan Mehdi"></div>
+<h3>Hassan Mehdi</h3><div class="role">DEVELOPER</div>
+<p>Class 9th · Elysian School</p>
+<button class="team-btn" onclick="viewTeamDetail('Hassan Mehdi','Developer','Developer of the BB Gang website and digital platform. Class 9th, Elysian School.')">VIEW TEAM DETAIL</button>
+</div>
+<div class="member">
+<div class="avatar">Z</div>
+<h3>Zulqarnain</h3><div class="role">PRESIDENT</div>
+<p>Class 9th · Elysian School</p>
+<button class="team-btn" onclick="viewTeamDetail('Zulqarnain','President','President of BB Gang. Class 9th, Elysian School.')">VIEW TEAM DETAIL</button>
+</div>
+<div class="member">
+<div class="avatar">Z</div>
+<h3>Zaki</h3><div class="role">MEMBER PLUS</div>
+<p>Class 9th · Elysian School</p>
+<button class="team-btn" onclick="viewTeamDetail('Zaki','Member Plus','BB Gang Member Plus. Class 9th, Elysian School.')">VIEW TEAM DETAIL</button>
+</div>
+<div class="member">
+<div class="avatar">R</div>
+<h3>Rohan</h3><div class="role">MEMBER PLUS</div>
+<p>Class 9th · Elysian School</p>
+<button class="team-btn" onclick="viewTeamDetail('Rohan','Member Plus','BB Gang Member Plus. Class 9th, Elysian School.')">VIEW TEAM DETAIL</button>
+</div>
+<div class="member">
+<div class="avatar">S</div>
+<h3>Sheroze</h3><div class="role">MEMBER PLUS</div>
+<p>Class 9th · Elysian School</p>
+<button class="team-btn" onclick="viewTeamDetail('Sheroze','Member Plus','BB Gang Member Plus. Class 9th, Elysian School.')">VIEW TEAM DETAIL</button>
+</div>
+<div class="member">
+<div class="avatar">A</div>
+<h3>Ammarshah</h3><div class="role">MEMBER PLUS</div>
+<p>Class 9th · Elysian School</p>
+<button class="team-btn" onclick="viewTeamDetail('Ammarshah','Member Plus','BB Gang Member Plus. Class 9th, Elysian School.')">VIEW TEAM DETAIL</button>
+</div>
+<div class="member">
+<div class="avatar">S</div>
+<h3>Sohan</h3><div class="role">SUBSTITUTE OF BB</div>
+<p>Class 9th · Elysian School</p>
+<button class="team-btn" onclick="viewTeamDetail('Sohan','Substitute of BB','Substitute of BB. Class 9th, Elysian School.')">VIEW TEAM DETAIL</button>
+</div>
+</div>
+</section>
+<section id="rules">
+<div class="title"><h2>BB GANG <span>RULES</span></h2></div>
+<div class="rules">
+<div class="rule"><strong>01 — Respect</strong><br>Respect every BB Gang member.</div>
+<div class="rule"><strong>02 — Loyalty</strong><br>Stay loyal to the community.</div>
+<div class="rule"><strong>03 — No Toxicity</strong><br>Keep the community positive.</div>
+<div class="rule"><strong>04 — Teamwork</strong><br>Work together and support each other.</div>
+<div class="rule"><strong>05 — Have Fun</strong><br>Enjoy the community and make memories.</div>
+</div>
+</section>
+<section class="join" id="join">
+<h2>JOIN BB GANG</h2>
+<p>Enter your details below to submit a membership request.</p>
+
+<form class="join-form" id="joinForm" onsubmit="submitJoin(event)">
+<div class="form-grid">
+
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" required placeholder="your@email.com">
+</div>
+
+<div class="form-group">
+<label for="password">Password</label>
+<input type="password" id="password" minlength="8" required placeholder="Minimum 8 characters">
+</div>
+
+<div class="form-group">
+<label for="realName">Real Name</label>
+<input type="text" id="realName" required placeholder="Your real name">
+</div>
+
+<div class="form-group">
+<label for="nickname">Nickname</label>
+<input type="text" id="nickname" required placeholder="Your BB nickname">
+</div>
+
+<div class="form-group">
+<label for="school">School</label>
+<input type="text" id="school" required placeholder="School name">
+</div>
+
+<div class="form-group">
+<label for="className">Class</label>
+<input type="text" id="className" required placeholder="e.g. Grade 9">
+</div>
+
+<div class="form-group full">
+<button type="submit" class="btn" style="border:0;cursor:pointer;width:100%">SUBMIT MEMBERSHIP REQUEST</button>
+</div>
+
+</div>
+<p class="form-note">Demo form: this version validates your information in the browser only. It does not send or save your password anywhere. For a real membership system, use a secure backend with password hashing and HTTPS.</p>
+</form>
+</section>
+
+<div class="modal" id="teamModal" onclick="closeTeamDetails(event)">
+<div class="modal-box">
+<button class="close-modal" onclick="closeTeamModal()">×</button>
+<h3 id="detailName"></h3>
+<div class="modal-role" id="detailRole"></div>
+<p id="detailText"></p>
+</div>
+</div>
+<footer>
+<p>© 2026 <strong>BB GANG</strong></p>
+<p>Founder: <strong>Tabish Ali</strong> | President: <strong>Zulqarnain</strong> | Developer: <strong>Hassan Mehdi</strong></p>
+</footer>
+<script>
+function joinGang(){
+alert("Welcome to BB Gang! 
